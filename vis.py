@@ -338,7 +338,7 @@ def vis_one_image(
                     edgecolor='w', linewidth=1.2,
                     alpha=0.5)
                 ax.add_patch(polygon)
-'''
+
         # show keypoints
         if keypoints is not None and len(keypoints) > i:
             kps = keypoints[i]
@@ -346,6 +346,25 @@ def vis_one_image(
             for l in range(len(kp_lines)):
                 i1 = kp_lines[l][0]
                 i2 = kp_lines[l][1]
+                
+                ax.text(
+                    kps[0, i1], kps[0, i2],
+                    'test',
+                    fontsize=3,
+                    family='serif',
+                    bbox=dict(
+                        facecolor='g', alpha=0.4, pad=0, edgecolor='none'),
+                    color='white')
+                ax.text(
+                    kps[1, i1], kps[1, i2],
+                    'test',
+                    fontsize=3,
+                    family='serif',
+                    bbox=dict(
+                        facecolor='g', alpha=0.4, pad=0, edgecolor='none'),
+                    color='white')                
+
+                
                 if kps[2, i1] > kp_thresh and kps[2, i2] > kp_thresh:
                     x = [kps[0, i1], kps[0, i2]]
                     y = [kps[1, i1], kps[1, i2]]
@@ -388,7 +407,7 @@ def vis_one_image(
                 plt.setp(
                     line, color=colors[len(kp_lines) + 1], linewidth=1.0,
                     alpha=0.7)
-'''
+
     output_name = os.path.basename(im_name) + '.' + ext
     fig.savefig(os.path.join(output_dir, '{}'.format(output_name)), dpi=dpi)
     plt.close('all')
