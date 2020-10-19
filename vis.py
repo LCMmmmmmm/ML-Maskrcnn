@@ -346,23 +346,7 @@ def vis_one_image(
             for l in range(len(kp_lines)):
                 i1 = kp_lines[l][0]
                 i2 = kp_lines[l][1]
-                
-                ax.text(
-                    kps[0, i1], kps[0, i2],
-                    'test',
-                    fontsize=3,
-                    family='serif',
-                    bbox=dict(
-                        facecolor='g', alpha=0.4, pad=0, edgecolor='none'),
-                    color='white')
-                ax.text(
-                    kps[1, i1], kps[1, i2],
-                    'test',
-                    fontsize=3,
-                    family='serif',
-                    bbox=dict(
-                        facecolor='g', alpha=0.4, pad=0, edgecolor='none'),
-                    color='white')                
+             
 
                 
                 if kps[2, i1] > kp_thresh and kps[2, i2] > kp_thresh:
@@ -393,6 +377,17 @@ def vis_one_image(
             sc_mid_hip = np.minimum(
                 kps[2, dataset_keypoints.index('right_hip')],
                 kps[2, dataset_keypoints.index('left_hip')])
+                            
+            ax.text(
+                mid_shoulder[0], mid_hip[0],
+                'test',
+                fontsize=3,
+                family='serif',
+                bbox=dict(
+                    facecolor='g', alpha=0.4, pad=0, edgecolor='none'),
+                color='white')
+
+            
             if (sc_mid_shoulder > kp_thresh and
                     kps[2, dataset_keypoints.index('nose')] > kp_thresh):
                 x = [mid_shoulder[0], kps[0, dataset_keypoints.index('nose')]]
