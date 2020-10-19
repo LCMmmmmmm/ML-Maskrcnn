@@ -377,9 +377,9 @@ def vis_one_image(
             sc_mid_hip = np.minimum(
                 kps[2, dataset_keypoints.index('right_hip')],
                 kps[2, dataset_keypoints.index('left_hip')])
-                            
+                       
             ax.text(
-                mid_hip[0],mid_shoulder[0],
+                mid_hip[0],kps[0, dataset_keypoints.index('nose')],
                 'test',
                 fontsize=3,
                 family='serif',
