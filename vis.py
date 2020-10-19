@@ -379,7 +379,7 @@ def vis_one_image(
                 kps[2, dataset_keypoints.index('left_hip')])
                             
             ax.text(
-                mid_shoulder[0], mid_hip[0],
+                mid_hip[0],mid_shoulder[0],
                 'test',
                 fontsize=3,
                 family='serif',
