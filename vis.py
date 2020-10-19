@@ -202,7 +202,7 @@ def vis_keypoints(img, kps, kp_thresh=2, alpha=0.7):
 
 def vis_one_image_opencv(
         im, boxes, segms=None, keypoints=None, thresh=0.9, kp_thresh=2,
-        show_box=True, dataset=None, show_class=False):
+        show_box=False, dataset=None, show_class=False):
     """Constructs a numpy array with the detections visualized."""
 
     if isinstance(boxes, list):
@@ -338,7 +338,7 @@ def vis_one_image(
                     edgecolor='w', linewidth=1.2,
                     alpha=0.5)
                 ax.add_patch(polygon)
-
+###
         # show keypoints
         if keypoints is not None and len(keypoints) > i:
             kps = keypoints[i]
@@ -388,7 +388,7 @@ def vis_one_image(
                 plt.setp(
                     line, color=colors[len(kp_lines) + 1], linewidth=1.0,
                     alpha=0.7)
-
+###
     output_name = os.path.basename(im_name) + '.' + ext
     fig.savefig(os.path.join(output_dir, '{}'.format(output_name)), dpi=dpi)
     plt.close('all')
